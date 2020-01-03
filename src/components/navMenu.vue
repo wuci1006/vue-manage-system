@@ -52,6 +52,16 @@
 					    icon: 'el-icon-menu',
 					    index: '/calendar',
 					    title: '日历管理',
+						subs: [
+						    {
+						        index: '/calendar/one',
+						        title: '日历1'
+						    },
+							{
+							    index: '/calendar/two',
+							    title: '日历2'
+							},
+						]
 					},
 					{
 					    icon: 'el-icon-menu',

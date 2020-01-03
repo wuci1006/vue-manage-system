@@ -45,10 +45,16 @@ const RouterConfig = {
 					component: resolve => require(['../pages/chart/barGraph.vue'], resolve)
 				},
 				{
-					path: '/calendar',
-					name:'calendar_index',
-					meta:{title:'日历管理'},
-					component: resolve => require(['../pages/calendario/calendario.vue'], resolve)
+					path: '/calendar/one',
+					name:'calendar_one',
+					meta:{title:'日历管理/日历1'},
+					component: resolve => require(['../pages/calendario/calendario1.vue'], resolve)
+				},
+				{
+					path: '/calendar/two',
+					name:'calendar_two',
+					meta:{title:'日历管理/日历2'},
+					component: resolve => require(['../pages/calendario/calendario2.vue'], resolve)
 				},
 				{
 					path: '/map',

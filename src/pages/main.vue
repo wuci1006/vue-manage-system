@@ -134,6 +134,7 @@
 			margin:64px 0 0 200px;
 			background-color: #f1f1f1;
 			padding:0;
+			height:93vh;
 		}
 		
     }

@@ -1,0 +1,122 @@
+/* 头部名称 */
+.calendar #calendarDemo .calendarTitle{
+	padding: 10px 20px;
+	border-bottom: 1px solid #d9d9d9;
+}
+
+/* 提示框 */
+.calendar #calendarDemo #promptTip {
+	position: fixed;
+	z-index: 900;
+	background-color: orange;
+	width:60px;
+	height:80px;
+	border-radius:5px;
+}
+
+/* 日历 */
+.calendar #calendarDemo .comp-full-calendar {
+	max-width: 1660px !important;
+}
+
+/* 日历内容 */
+.calendar #calendarDemo .full-calendar-body {
+	height:587px;
+	overflow: hidden;
+}
+
+/* 日历内容-周一-周日 */
+.calendar #calendarDemo .full-calendar-body .weeks{
+	height: 40px;
+	line-height: 40px;
+	color: rgba(16, 16, 16, 1);
+	font-size: 12px;
+	font-family: Roboto;
+}
+
+
+/* 日历内容-每一天 */
+.calendar #calendarDemo .comp-full-calendar .full-calendar-body .dates .dates-events .events-week .events-day {
+	overflow: visible !important;
+	position: relative;
+}
+
+
+.calendar #calendarDemo .full-calendar-body .dates .dates-events .events-week .events-day .event-item {
+	border-radius: 2px;
+}
+
+/* 日历内容-阴历时间 */
+.calendar #calendarDemo .full-calendar-body .dates .dates-events .events-week .events-yinli {
+	position: absolute;
+	font-size: 12px;
+	color: #423e3e;
+	left: 6px;
+	top: 5px;
+}
+
+/*中国国际假日*/
+.feativals_CH {
+	/* color: #495cea !important; */
+	color:#e02d2d!important;
+}
+
+/*中国农历假日*/
+.lunarFeatival_CH {
+	color: #568ee6 !important;
+}
+
+/*中国二十四节气*/
+.solarTerm {
+	color: #568ee6 !important;
+}
+
+/*2018法定节假日*/
+.legal_feativals {
+	color: #568ee6 !important;
+}
+
+/*法定节假日背景色*/
+.dayoflegal {
+	background-color: rgba(191, 191, 191, 0.16);
+	/* background-color:#fff0f0; */
+}
+
+/*国家法定休息日*/
+.calendar #calendarDemo .rest {
+	display: inline-block;
+	position: absolute;
+	color: #fff;
+	top: 6px;
+	right: 22px;
+	font-size: 10px !important;
+	width: 14px;
+	height: 14px;
+	border-radius: 2px;
+	text-align: center;
+	line-height: 14px;
+	background: #3ad229;
+}
+
+/*周六周末day背景色*/
+.dayofweeks {
+	background-color: rgba(191, 191, 191, 0.16);
+}
+
+/*有事件的day背景色*/
+.dayofevents {
+	background-color: rgba(191, 191, 191, 0.16);
+}
+
+/* 不同的事件的背景色 */
+#calendarDemo .comp-full-calendar .full-calendar-body .dates .dates-events .events-week .events-day .event-box .blue{
+	background-color: #c7e6fd;
+}
+#calendarDemo .comp-full-calendar .full-calendar-body .dates .dates-events .events-week .events-day .event-box .pink{
+	background-color: pink;
+}
+	
+/*更多事件查看*/
+.calendar #calendarDemo .full-calendar-body .dates .more-events {
+	width: 14% !important;
+}
