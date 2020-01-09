@@ -380,7 +380,6 @@
                     let daynumber2 = '';
 
                     daynumber2 = that.constructor(yangliyear, yanglimonth, yangliday); //获取阴历  廿一
-					// console.log(daynumber2)
 					
                     let yanglimd = yanglimonth + '-' + yangliday; //阳历月日  如 10-1  06-05
 					
@@ -431,14 +430,14 @@
                 var i, leap = 0,temp = 0; //天数
                 var baseDate = new Date(1900, 0, 31);
                 var offset = (date - baseDate) / 86400000; //1900距离今天的天数
-
+				
                 //计算年数
                 for (i = 1900; i < 2050 && (offset - this.lYearDays(i)) > 0; i++) {
                     offset -= this.lYearDays(i)
                 }
                 this.year = i;
                 leap = this.leapMonth(i) //闰哪个月 0则不润
-                this.isLeap = false
+                this.isLeap = false;
 
                 //计算月数
                 for (i = 1; i < 13 && offset > 0; i++) {
@@ -449,12 +448,11 @@
                     } else {
                         temp = this.monthDays(this.year, i);
                     }
-
                     //解除闰月
                     if (this.isLeap == true && i == (leap + 1));
                     this.isLeap = false
 
-                    offset -= temp
+                    offset -= temp;
                 }
 
                 //如果恰好减完了，不是闰月的话月数减1
@@ -474,7 +472,6 @@
                 this.month = i;
                 //最后剩余的就是日期
                 this.day = (offset + 1).toFixed(0);
-
                 return this.getLunarDayName();
             },
 
@@ -504,7 +501,7 @@
                 return ((this.lunarInfo[year - 1900] & (0x10000 >> month)) ? 30 : 29)
             },
 
-            //根据阳历获取阳历日期 
+            //根据阳历获取阴历日期 
             cDay(d) {
                 let s;
                 switch (d * 1) {

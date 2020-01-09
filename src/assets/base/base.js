@@ -60,5 +60,4 @@ class MyBase{
 	}
 }
 
-
 export default MyBase;

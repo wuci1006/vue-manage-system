@@ -56,7 +56,7 @@
 							axisPointer: {
 								label: {
 									formatter: function (params) {
-										return '销量' + params.value
+										return '负荷' + params.value
 											+ (params.seriesData.length ? '：' + params.seriesData[0].data : '');
 									}
 								}
@@ -77,7 +77,7 @@
 							axisPointer: {
 								label: {
 									formatter: function (params) {
-										return '销量' + params.value
+										return '负荷' + params.value
 											+ (params.seriesData.length ? '：' + params.seriesData[0].data : '');
 									}
 								}

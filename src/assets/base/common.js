@@ -1,5 +1,5 @@
 // 时间计算
-let countTime = {
+export const countTime = {
     // 判断日期是否跨月
     isDateMonths: function (startDateString, endDateString) {
         var myStartMonth = startDateString.split('-')[1] * 1;
@@ -122,7 +122,7 @@ let countTime = {
 
 }
 // 字符串加工
-let workingStr = {
+export const workingStr = {
     longSTR: function (str, maxLength) {
         if ((str.length) < 6 || (maxLength < 6)) {
             return str;
@@ -136,7 +136,3 @@ let workingStr = {
         }
     },
 }
-export {
-    countTime,
-    workingStr
-};

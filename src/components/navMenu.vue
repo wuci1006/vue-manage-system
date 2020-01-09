@@ -36,7 +36,6 @@
 				            {
 				                index: '/chart/pie',
 				                title: '饼图',
-								meta:{title:'图形管理/饼图'}
 				            },
 							{
 							    index: '/chart/line',
