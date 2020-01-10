@@ -60,17 +60,41 @@
 							    index: '/calendar/two',
 							    title: '日历2'
 							},
+							{
+							    index: '/calendar/three',
+							    title: '日历3'
+							},
 						]
 					},
 					{
 					    icon: 'el-icon-menu',
 					    index: '/map',
 					    title: '地图管理',
+						subs: [
+						    {
+						        index: '/map/one',
+						        title: '地图1'
+						    },
+							{
+							    index: '/map/two',
+							    title: '地图2'
+							},
+						]
 					},
 					{
 					    icon: 'el-icon-menu',
 					    index: '/editor',
 					    title: '编辑器',
+						subs: [
+						    {
+						        index: '/editor/one',
+						        title: '编辑器1'
+						    },
+							{
+							    index: '/editor/two',
+							    title: '编辑器2'
+							},
+						]
 					},
 					{
 					    icon: 'el-icon-setting',

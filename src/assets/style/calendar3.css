@@ -1,0 +1,147 @@
+.calender {
+	width: 600px;
+	position: relative;
+	margin: 20px auto;
+	border: 1px solid #ddd;
+	padding: 15px;
+}
+
+.calendar_top {
+	width: 100%;
+	position: relative;
+	display: flex;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 15px;
+}
+
+.calendar_top_year, 
+.calendar_top_month, 
+.calendar_top_vacation, 
+.calendar_top_today{
+	flex:1;
+	/* background-color: pink; */
+	border:1px solid #eee;
+	height:30px;
+	line-height: 30px;
+	text-align: center;
+	font-size:14px;
+}
+.calendar_top_month, 
+.calendar_top_vacation, 
+.calendar_top_today{
+	margin-left:10px;
+}
+
+/* .calendar_top_date {
+	width: 100px;
+	text-align: left;
+	line-height: 42px;
+}
+
+.calendar_top_btn {
+	flex: 1;
+	text-align: right
+} */
+
+/* .calendar_top_btn ul {
+	display: flex;
+	flex-direction: row-reverse
+}
+
+.calendar_top_btn ul li {
+	padding: 10px 20px;
+	border: 1px solid #ddd;
+	font-size: 14px;
+	line-height: 20px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.calendar_top_btn ul li:hover {
+	background: #ddd;
+	color: red;
+}
+
+.calendar_top_btn ul li:first-child {
+	border-left: none;
+}
+
+.calendar_top_btn ul li:last-child {
+	border-right: none;
+} */
+
+
+
+.calendar_content {
+	position: relative;
+}
+
+.calendar_content_week {
+	display: flex;
+	flex-direction: row;
+	/* padding: 20px; */
+	font-size: 16px;
+	height:60px;
+	line-height: 60px;
+}
+
+.calendar_content_week li {
+	width: 14.28%;
+	text-align: center;
+}
+
+.calendar_content_day {
+	display: flex;
+	flex-direction: row;
+	font-size: 16px;
+	flex-wrap: wrap;
+}
+
+.calendar_content_day li {
+	width: 14.28%;
+	padding: 20px;
+	box-sizing: border-box;
+	border-top: 1px solid #ddd;
+	text-align: center;
+	position:relative;
+	/* background-color: orange; */
+}
+
+/* 日历-公历 */
+.calendar_content_day li .item_solar{
+	font-size:18px;
+	color:#000;
+}
+/* 日历-农历 */
+.calendar_content_day li .item_lunar{
+	font-size:12px;
+	color:#999;
+}
+/* 日历-休 */
+.calendar_content_day li .item_rest{
+	position: absolute;
+	top:0;
+	left:0;
+	width:20px;
+	height:20px;
+	background-color: #f43;
+	color:#fff;
+	font-size:14px;
+	display: block;
+}
+/* .calendar_content_day li:nth-child(n+8) {
+	border-top: none;
+}
+
+.calendar_content_day li:nth-child(n+1) {
+	border-right: none;
+}
+
+.calendar_content_day li:nth-child(7n) {
+	border-right: 1px solid #ddd
+} */
+
+.calendar_content_now {
+	background: #f2f8fe;
+	color: #1989fa;
+}

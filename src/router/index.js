@@ -57,16 +57,34 @@ const RouterConfig = {
 					component: resolve => require(['../pages/calendario/calendario2.vue'], resolve)
 				},
 				{
-					path: '/map',
-					name:'map_index',
-					meta:{title:'地图管理'},
-					component: resolve => require(['../pages/mappa/mappa.vue'], resolve)
+					path: '/calendar/three',
+					name:'calendar_three',
+					meta:{title:'日历管理/日历3'},
+					component: resolve => require(['../pages/calendario/calendario3.vue'], resolve)
 				},
 				{
-					path: '/editor',
-					name:'editor_index',
-					meta:{title:'编辑器'},
-					component: resolve => require(['../pages/editore/editore.vue'], resolve)
+					path: '/map/one',
+					name:'map_one',
+					meta:{title:'地图管理/地图1'},
+					component: resolve => require(['../pages/mappa/mappa1.vue'], resolve)
+				},
+				{
+					path: '/map/two',
+					name:'map_two',
+					meta:{title:'地图管理/地图2'},
+					component: resolve => require(['../pages/mappa/mappa2.vue'], resolve)
+				},
+				{
+					path: '/editor/one',
+					name:'editor_one',
+					meta:{title:'编辑器/编辑器1'},
+					component: resolve => require(['../pages/editore/editore1.vue'], resolve)
+				},
+				{
+					path: '/editor/two',
+					name:'editor_two',
+					meta:{title:'编辑器/编辑器2'},
+					component: resolve => require(['../pages/editore/editore2.vue'], resolve)
 				},
 				{
 					path: '/system/user',
