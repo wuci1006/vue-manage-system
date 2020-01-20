@@ -1,16 +1,16 @@
 <template>
     <div class="calendario">
         <div class="calendar">
-			<calendarList ref="calendarChild"></calendarList>
+			<myFullCalendar ref="calendarChild"></myFullCalendar>
         </div>
     </div>
 </template>
 
 <script>
-	import calendarList from "../../components/calendar/calendar1.vue";//日历
+	import myFullCalendar from "../../components/calendar/myFullCalendar.vue";//日历
     export default {
 		components: {
-            calendarList
+            myFullCalendar
         },
         data() {
             return {
@@ -35,7 +35,8 @@
 	}
 </style>
 <style>
-	@import '../../assets/style/calendar.css';
+	@import '../../assets/style/fullCalendar.css';
 </style>
+
 
 

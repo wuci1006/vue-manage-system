@@ -52,17 +52,13 @@
 					    index: '/calendar',
 					    title: '日历管理',
 						subs: [
-						    {
-						        index: '/calendar/one',
-						        title: '日历1'
-						    },
 							{
-							    index: '/calendar/two',
-							    title: '日历2'
+							    index: '/calendar/my',
+							    title: 'myCalendar'
 							},
 							{
-							    index: '/calendar/three',
-							    title: '日历3'
+							    index: '/calendar/full',
+							    title: 'fullCalendar'
 							},
 						]
 					},

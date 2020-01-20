@@ -1,122 +1,145 @@
-/* 头部名称 */
-.calendar #calendarDemo .calendarTitle{
-	padding: 10px 20px;
-	border-bottom: 1px solid #d9d9d9;
+.calender {
+	width: 900px;
+	position: relative;
+	margin: 20px auto;
+	border: 1px solid #ddd;
+	padding: 15px;
 }
-
-/* 提示框 */
-.calendar #calendarDemo #promptTip {
-	position: fixed;
-	z-index: 900;
-	background-color: orange;
-	width:60px;
-	height:80px;
-	border-radius:5px;
-}
-
-/* 日历 */
-.calendar #calendarDemo .comp-full-calendar {
-	max-width: 1660px !important;
-}
-
-/* 日历内容 */
-.calendar #calendarDemo .full-calendar-body {
-	height:587px;
-	overflow: hidden;
-}
-
-/* 日历内容-周一-周日 */
-.calendar #calendarDemo .full-calendar-body .weeks{
-	height: 40px;
-	line-height: 40px;
-	color: rgba(16, 16, 16, 1);
-	font-size: 12px;
-	font-family: Roboto;
+/* 日历-头部切换 */
+.calendar_top {
+	width: 100%;
+	position: relative;
+	display: flex;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 15px;
 }
 
 
+.calendar_top_year, 
+.calendar_top_month, 
+.calendar_top_vacation, 
+.calendar_top_today{
+	flex:1;
+	border:1px solid #eee;
+	height:30px;
+	line-height: 30px;
+	text-align: center;
+	font-size:14px;
+}
+.calendar_top_month, 
+.calendar_top_vacation, 
+.calendar_top_today{
+	margin-left:10px;
+}
 
-.calendar #calendarDemo .comp-full-calendar .full-calendar-body .dates .dates-events .events-week .events-day {
-	overflow: visible !important;
+.calendar_content {
 	position: relative;
 }
 
-/* 日历-事件样式 */
-.calendar #calendarDemo .full-calendar-body .dates .dates-events .events-week .events-day .event-item {
-	border-radius: 2px;
+/* 日历-星期 */
+.calendar_content_week {
+	display: flex;
+	flex-direction: row;
+	/* padding: 20px; */
+	font-size: 16px;
+	height:60px;
+	line-height: 60px;
 }
 
-/* 日历内容-阴历时间 */
-.calendar #calendarDemo .full-calendar-body .dates .dates-events .events-week .events-yinli {
-	position: absolute;
-	font-size: 12px;
-	color: #423e3e;
-	left: 6px;
-	top: 5px;
-}
-
-/*中国国际假日*/
-.feativals_CH {
-	/* color: #495cea !important; */
-	color:#e02d2d!important;
-}
-
-/*中国农历假日*/
-.lunarFeatival_CH {
-	color: #568ee6 !important;
-}
-
-/*中国二十四节气*/
-.solarTerm {
-	color: #568ee6 !important;
-}
-
-/*2018法定节假日*/
-.legal_feativals {
-	color: #568ee6 !important;
-}
-
-/*法定节假日背景色*/
-.dayoflegal {
-	background-color: rgba(191, 191, 191, 0.16);
-	/* background-color:#fff0f0; */
-}
-
-/*国家法定休息日*/
-.calendar #calendarDemo .rest {
-	display: inline-block;
-	position: absolute;
-	color: #fff;
-	top: 6px;
-	right: 22px;
-	font-size: 10px !important;
-	width: 14px;
-	height: 14px;
-	border-radius: 2px;
+.calendar_content_week li {
+	width: 14.28%;
 	text-align: center;
-	line-height: 14px;
-	background: #3ad229;
 }
 
-/*周六周末day背景色*/
-.dayofweeks {
-	background-color: rgba(191, 191, 191, 0.16);
+
+.calendar_content_day {
+	display: flex;
+	flex-direction: row;
+	font-size: 16px;
+	flex-wrap: wrap;
 }
 
-/*有事件的day背景色*/
-.dayofevents {
-	background-color: rgba(191, 191, 191, 0.16);
+/* 日历-每一天 */
+.calendar_content_day li {
+	width: 14.28%;
+	padding: 20px;
+	box-sizing: border-box;
+	border-top: 1px solid #ddd;
+	text-align: center;
+	position:relative;
+	border-left:1px solid #fff;
 }
 
-/* 不同的事件的背景色 */
-#calendarDemo .comp-full-calendar .full-calendar-body .dates .dates-events .events-week .events-day .event-box .blue{
-	background-color: #c7e6fd;
+/* 日历-公历 */
+.calendar_content_day li .item_solar{
+	font-size:18px;
+	color:#000;
 }
-#calendarDemo .comp-full-calendar .full-calendar-body .dates .dates-events .events-week .events-day .event-box .pink{
-	background-color: pink;
+/* 日历-农历 */
+.calendar_content_day li .item_lunar{
+	font-size:12px;
+	color:#999;
 }
-	
-/*更多事件查看*/
-.calendar #calendarDemo .full-calendar-body .dates .more-events {
-	width: 14% !important;
+/* 日历-休 */
+.calendar_content_day li .item_rest{
+	position: absolute;
+	top:0;
+	left:0;
+	width:20px;
+	height:20px;
+	background-color: #f43;
+	color:#fff;
+	font-size:14px;
+	display: block;
 }
+
+/* 今天的样式 */
+.calendar_content_day .calendar_content_today {
+	background-color: #F2F5FF;
+	color: #1989fa;
+}
+
+/* 法定节假日背景色 */
+.calendar_content_day .calendar_content_rest_bgc {
+	background: #fff0f0;
+}
+
+/* 二十四节气颜色 */
+.calendar_content_day li .calendar_content_term_color{
+	color: #e02d2d;
+	font-size:12px;
+}
+
+.calendar_content_day li .calendar_content_month_opacity{
+	opacity:0.75;
+}
+
+.calendar_content_day li .calendar_content_month_color{
+	color:#bfbfbf;
+}
+.calendar_content_rest_opacity{
+	opacity:0.75;
+}
+
+/* 点击 */
+.calendar_content_day .calendar_content_click{
+	border:3px solid #fb0;
+}
+
+/* 事件 */
+.calendar_content_event{
+	position: absolute;
+	bottom:0;
+	left:0;
+	height:20px;
+	background-color: #969799;
+	color:#fff;
+	font-size:14px;
+	display: block;
+}
+
+
+
+
+
+

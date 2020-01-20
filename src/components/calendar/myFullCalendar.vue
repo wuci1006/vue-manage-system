@@ -1,9 +1,22 @@
 <template>
     <div class="calendarList" id="calendarDemo">
-		<div id="promptTip" style="background-color:orange;" v-show="tip.if">
-			<p>123</p>
-			<p>456</p>
-			<p>{{tip.content}}</p>
+		<div id="promptTip" v-show="tip.if">
+			<div class="prompt_top">
+				<div class="prompt_top_title">详情</div>
+				<div class="prompt_top_cancel" @click="tip.if=false">
+					<img src="../../assets/images/icon_delete.png" alt="">
+				</div>
+			</div>
+			<div class="prompt_content">
+				<p>司机：{{tip.person}}</p>
+				<p>车牌：{{tip.car}}</p>
+				<p>手机号：{{tip.phone}}</p>
+				<p>发车时间：{{tip.posttime}}</p>
+			</div>
+			<div class="prompt_foot" v-show="tip.footerShow">
+				<button class="prompt_foot_btn btn_delete" @click="handleDelete">删除</button>
+				<button class="prompt_foot_btn btn_edit" @click="handleEdit">编辑</button>
+			</div>
 		</div>
         <full-calendar :events="events" locale="fr" lang="zh" firstDay='0' weekMode="liquid" ref="calendar" 
 			@changeMonth="changeMonth" @eventClick="eventClick" @dayClick="dayClick" @moreClick="moreClick">
@@ -12,9 +25,7 @@
 </template>
 
 <script>
-    import moment from 'moment';
     import $ from "jquery";
-	import {toLunar} from '../../assets/calendar/toLunar.js';
 	import {festival} from '../../assets/calendar/festival.js';
 	import {calendar} from '../../assets/calendar/calendar.js';
 
@@ -28,18 +39,17 @@
                     {id:1,cssClass:'pink',title:'工研院-华科',start:'2019-12-10',end:'2019-12-12',posttime:'2019-12-10 16:50',person:'张师傅',phone:'13412345678',car:'鄂GLY048'},
 					{id:2,cssClass:'blue',title:'工研院-华科',start:'2019-12-15',end:'2019-12-19',posttime:'2019-12-12 16:50',person:'张师傅',phone:'13412345678',car:'鄂GLY048'},
 					{id:3,cssClass:'blue',title:'工研院-华科',start:'2020-01-12',posttime:'2020-01-20 16:50',person:'张师傅',phone:'13412345678',car:'鄂GLY048'},
+					{id:4,cssClass:'blue',title:'工研院-华科',start:'2020-02-12',posttime:'2020-02-20 16:50',person:'张师傅',phone:'13412345678',car:'鄂GLY048'},
+					{id:5,cssClass:'blue',title:'工研院-华科',start:'2020-03-12',posttime:'2020-03-20 16:50',person:'张师傅',phone:'13412345678',car:'鄂GLY048'},
                 ],
-                tip: {//提示信息
+                tip: {
                     if: false,
-                    title: "暂无数据",
-                    content: "暂无数据",
+					footerShow:true,
                 },
-                today: '',//今天
+                today: '',
             }
         },
         mounted() {
-			// console.log(calendar.solartolunar('1987','11','01'))
-
 			this.drawData();
         },
         methods: {
@@ -49,7 +59,7 @@
 			},
             //点击换月 - 第一次自动触发
             changeMonth(start, end, current) {
-				console.log('changeMonth',start,end,current)
+				// console.log('changeMonth',start,end,current)
                 this.tip.if = false;
                 setTimeout(() => {
 					this.changeWeekendBackgroundColor();
@@ -59,32 +69,30 @@
             //点击日历事件
             eventClick(event, jsEvent, pos) {
                 this.tip.if = false;
+				
+				this.tip.id = event.id;
                 this.tip.title = event.title;
                 this.tip.start = event.start;
-                this.tip.id = event.id;
+				this.tip.end = event.end;
+				this.tip.posttime = event.posttime;
                 this.tip.person = event.person;
                 this.tip.car = event.car;
                 this.tip.phone = event.phone;
-                this.tip.posttime = event.posttime;
-				
-                // let tipcontent = '';
 				
                 let left = jsEvent.clientX;
-                let top = jsEvent.clientY - 70;
+                let top = jsEvent.clientY - 170;
                 this.tip.if = true;
                 $('#promptTip').css({'left': left + 'px','top': top + 'px'});
-                // $('#promptTip').empty();
-                // $('#promptTip').append(tipcontent);
             },
             // 点击某一天
             dayClick(day, jsEvent) {
                 this.tip.if = false;
-                let today = moment(day).format('YYYY-MM-DD');
+                let today = this.myMoment(day).format('YYYY-MM-DD');
                 this.today = today;
             },
 			//点击更多
 			moreClick(){
-				console.log('moreCLick', day, events, jsEvent)
+				// console.log('moreCLick', day, events, jsEvent)
 			},
 			
 			//改变周末的背景颜色
@@ -109,9 +117,10 @@
 					let solarYearMonthDay = solarYear + '-' + solarMonth + '-' + solarDay;//获取阳历年月日
 					
 					let lunarDay = '';//阴历日
-					lunarDay = toLunar.getDate(_this.today).chineseLunarDay;//获取阴历日
-					let lunarMonthDay = toLunar.getDate(_this.today).chineseLunarMonth
-						+ toLunar.getDate(_this.today).chineseLunarDay;//获取阴历月日
+					lunarDay = calendar.solartolunar(solarYear,solarMonth,solarDay).IDayCn;//获取阴历日
+						
+					let lunarMonthDay = calendar.solartolunar(solarYear,solarMonth,solarDay).IMonthCn 
+						+ calendar.solartolunar(solarYear,solarMonth,solarDay).IDayCn;//获取阴历月日	)
 
 					let solar_festival_if = festival['solar_festival'][solarMonthDay]; //判断公历节日
 					let lunar_festival_if = festival['lunar_festival'][lunarMonthDay]; //判断农历节日
@@ -147,6 +156,14 @@
                     }
                 })
             },
+			//删除
+			handleDelete(){
+				// console.log(this.tip.id)
+			},
+			//编辑
+			handleEdit(){
+				// console.log(this.tip.id)
+			},
 
         },
     }

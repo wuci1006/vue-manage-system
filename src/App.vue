@@ -31,6 +31,7 @@
     a { color: #42b983;}
 	
     *{margin:0px;padding:0px;}
+	
 	.clearfix:after {
         display: block;
         clear: both;

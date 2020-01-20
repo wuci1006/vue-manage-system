@@ -9,7 +9,7 @@ import MyBase from './assets/base/base.js';
 import moment from 'moment';
 import md5 from 'js-md5';
 let Base64 = require('js-base64').Base64;
-import jquery from 'jquery';
+// import jquery from 'jquery';
 import BaiduMap from 'vue-baidu-map';
 import FullCalendar from 'vue-fullcalendar';
 
@@ -23,7 +23,7 @@ Vue.prototype.myBase = MyBase;
 Vue.prototype.myMoment = moment;
 Vue.prototype.myMd5 = md5;
 Vue.prototype.myBase64 = Base64;
-Vue.prototype.$ = jquery;
+// Vue.prototype.$ = jquery;
 
 Vue.use(ElementUI);
 Vue.use(BaiduMap, {ak: 'wUYDdHvNZ2b3iOtLcbRczL9VDFpPhXx0'});

@@ -1,15 +1,5 @@
 /* 日历组件样式 */
 
-/* 提示框 */
-.calendar #calendarDemo #promptTip {
-	position: fixed;
-	z-index: 900;
-	background-color: orange;
-	width:60px;
-	height:80px;
-	border-radius:5px;
-}
-
 /* 日历 */
 .calendar #calendarDemo .comp-full-calendar {
 	max-width: 1660px !important;
@@ -109,4 +99,89 @@
 /*更多事件查看*/
 .calendar #calendarDemo .full-calendar-body .dates .more-events {
 	width: 14% !important;
+}
+
+
+
+/* 提示框 */
+.calendar #calendarDemo #promptTip {
+	position: fixed;
+	z-index: 900;
+	background-color: #fff;
+	/* width:60px; */
+	/* height:80px; */
+	border-radius:5px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+}
+
+.prompt_top{
+	padding:15px;
+	position: relative;
+	border-bottom:1px solid #e8eaec;
+}
+
+/* 头部标题 */
+.prompt_top_title {
+	font-size: 14px;
+	color: #17233d;
+	font-weight: 700;
+	height: 20px;
+	line-height: 20px;
+	display: inline-block;
+	width: 93%;
+}
+
+/* 头部取消 */
+.prompt_top_cancel {
+	height: 20px;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+}
+
+.prompt_top_cancel img {
+	width: 20px;
+	height: 20px;
+}
+
+/* 内容 */
+.prompt_content {
+	padding: 15px 25px;
+	font-size: 14px;
+}
+.prompt_content  p {
+	line-height: 30px;
+}
+
+/* 尾部 */
+.prompt_foot {
+	border-top: 1px solid #e8eaec;
+	padding: 15px;
+	text-align: right;
+}
+
+/* 尾部按钮 */
+.prompt_foot_btn {
+	padding: 5px 15px;
+	font-size: 12px;
+	color: #fff;
+	font-weight: 400;
+	border-color: transparent;
+	border-radius: 4px;
+	border: none;
+	text-align: center;
+
+	line-height: 25px;
+	cursor: pointer;
+	outline: none;
+}
+/* 删除按钮 */
+.btn_delete {
+	background-color: #ed4014;
+	border-color: #ed4014;
+}
+/* 编辑按钮 */
+.btn_edit {
+	background-color: #2d8cf0;
+	border-color: #2d8cf0;
 }
