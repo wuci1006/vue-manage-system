@@ -1,159 +1,122 @@
 <template>
-  <div class="main">
-    <el-container>
-      <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-        <el-radio-button :label="false">展开</el-radio-button>
-        <el-radio-button :label="true">收起</el-radio-button>
-      </el-radio-group>
-      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">导航一</span>
-          </template>
-          <el-menu-item-group>
-            <span slot="title">分组一</span>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="1-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="1-4">
-            <span slot="title">选项4</span>
-            <el-menu-item index="1-4-1">选项1</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="3" disabled>
-          <i class="el-icon-document"></i>
-          <span slot="title">导航三</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-      </el-menu>
-        <!-- <el-header :style="{height:'64px',padding:'0'}">
-          <div id="mainHeader">
-            <span @click="exchangeWidth">
-              <i class="el-icon-s-fold" v-show="normalWidth"></i>
-              <i class="el-icon-s-unfold" v-show="!normalWidth"></i>
-            </span>
-            <p>Background management system</p>
-            <div class="mainLogout" @click="logout">
-              <img src="../assets/images/icon_logo.jpg" alt="">
-              <p>admin</p>
-            </div>
-          </div>
-        </el-header>
+    <div class="main">
         <el-container :style="{height:menuHeight}">
-            <el-aside :style="{width:dynamicWidth,overflow:'hidden',height:menuHeight,background:'#293543'}">
-              <NavMenu></NavMenu>
+            <el-aside :style="{width:'auto',overflow:'hidden',height:menuHeight,background:'#2F3746'}">
+                <div :style="{height:'48px'}">
+                  <!-- <img :style="{width:'100px',height:'48px',display:'block',margin:'0 auto'}"
+                      v-show="!isCollapse" src="../assets/images/logo.png" alt="">
+                  <img :style="{width:'40px',height:'48px',display:'block',margin:'0 auto'}"
+                      v-show="isCollapse" src="../assets/images/mobile-logo.png" alt=""> -->
+                </div>
+
+                <NavMenu :isCollapse="isCollapse"></NavMenu>
             </el-aside>
-            <el-main :style="{height:menuHeight,background:'#f1f1f1',padding:'0'}">
-              <el-breadcrumb separator="/" v-show="this.$route.meta.title">
-                <el-breadcrumb-item>{{this.$route.meta.title}}</el-breadcrumb-item>
-              </el-breadcrumb>
-              <router-view />
-            </el-main>
-        </el-container> -->
-    </el-container>
-  </div>
+
+            <el-container>
+                <el-header :style="{height:'48px',padding:'0'}">
+                    <div class="header_wrap clearfix">
+                        <div class="header_box" @click="handleWidth">
+                            <i class="el-icon-s-fold" v-show="isCollapse"></i>
+                            <i class="el-icon-s-unfold" v-show="!isCollapse"></i>
+                        </div>
+                        <el-breadcrumb separator="/" v-show="this.$route.meta.title" @click="handleBreadcrumb(this.$route)">
+                            <el-breadcrumb-item>{{this.$route.meta.title}}</el-breadcrumb-item>
+                        </el-breadcrumb>
+                        <div class="header_logout" @click="logout">
+                          <img src="../assets/images/icon_logo.jpg" alt="">
+                          <p>admin</p>
+                        </div>
+                    </div>
+                </el-header>
+                <el-main :style="{height:menuHeight,background:'#f1f1f1',padding:'0'}">
+                    <router-view />
+                </el-main>
+            </el-container>
+        </el-container>
+    </div>
 </template>
 
 <script>
-  // import NavMenu from '../components/navMenu.vue';
+  import NavMenu from '../components/navMenu.vue';
   export default {
-    // components: {
-    //   NavMenu
-    // },
+    components: {
+      NavMenu
+    },
     data() {
       return {
-        normalWidth: false, //开始左侧菜单栏不折叠
-        dynamicWidth: 200 + 'px',
-        menuHeight:(window.innerHeight - 64) + 'px'
+        isCollapse: false,
+        menuHeight: window.innerHeight + 'px',
       }
     },
     created() {
+
     },
-    mounted() {
-    },
+    mounted() {},
     methods: {
-      //改变侧边栏宽度
-      exchangeWidth() {
-        this.normalWidth = !this.normalWidth;
-        if (this.normalWidth) {
-          this.dynamicWidth = 70 + 'px';
-        } else {
-          this.dynamicWidth = 200 + 'px';
+        //改变侧边栏宽度
+        handleWidth() {
+            this.isCollapse = !this.isCollapse;
+        },
+        // 面包靴导航
+        handleBreadcrumb(i){
+          // console.log(i)
+        },
+        //登出
+        logout() {
+            this.$confirm('确认退出当前系统,是否继续?', '温馨提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+            }).then(() => {
+                this.$router.push({path: '/login'});
+                this.$notify({
+                  title: '登出提示',
+                  message: '登出成功',
+                  type: 'success'
+                });
+            }).catch(() => {});
         }
-      },
-      //登出
-      logout() {
-        this.$confirm('确认退出当前系统,是否继续?', '温馨提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-        }).then(() => {
-          this.$router.push({path: '/login'});
-          this.$notify({
-            title: '登出提示',
-            message: '登出成功',
-            type: 'success'
-          });
-        }).catch(() => {});
-      }
     },
   }
 </script>
-
 <style lang="scss" scoped>
   .main {
     width: 100%;
     height: 100%;
 
-    #mainHeader {
+    .header_wrap {
       width: 100%;
-      height: 64px;
-      background-color: #293543;
-      box-shadow: 0px 0px 5px #aaaaaa;
-      color: #fff;
+      height: 48px;
+      line-height: 48px;
+      background-color: #EEF4FF;
+      box-shadow: 0 2px 6px 0 rgba(190,204,216,.4);
+      color: #666;
 
-      span {
-        display: block;
+      .header_box {
         float: left;
-        margin: 18px 20px;
+        margin:0 15px;
 
         i {
-          font-size: 28px;
+          font-size: 14px;
         }
       }
 
-      p {
-        font-size: 20px;
-        float: left;
-        line-height: 64px;
-      }
 
-      .mainLogout {
+      .header_logout {
         float: right;
+        height:48px;
         margin: 0 20px;
 
         img {
-          width: 34px;
-          height: 34px;
+          width: 30px;
+          height: 30px;
           display: inline-block;
           vertical-align: middle;
-          margin: 15px 10px;
           border-radius: 50%;
         }
 
         p {
           font-size: 14px;
-          line-height: 64px;
+          line-height: 48px;
           vertical-align: middle;
           display: inline-block;
           float: none;
@@ -163,10 +126,23 @@
   }
 </style>
 <style>
+  /* 菜单默认宽度 */
   .el-menu-demo:not(.el-menu--collapse) {
     width: 200px;
+    min-height: 400px;
   }
 
+  /* 面包靴导航 */
+  .el-breadcrumb {
+    height: 48px;
+    line-height: 48px;
+    margin: 0;
+    float:left;
+  }
+
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner {
+    font-size: 12px;
+  }
   /* 无子菜单时 */
   .el-menu {
     background-color: #293543 !important;
@@ -176,7 +152,6 @@
   .el-submenu__title {
     color: #fff !important;
   }
-
   .el-submenu__title:hover,
   .el-submenu__title:focus {
     background-color: #363E4F !important;
@@ -194,26 +169,13 @@
   .el-submenu .el-menu-item:hover,
   .el-submenu .el-menu-item:focus {
     background-color: #38445d !important;
-    border-left: 2px solid #3071f4;
+    border-right: 2px solid #3071f4;
   }
 
-  /* 面包靴导航 */
-  .el-breadcrumb {
-    height: 45px;
-    line-height: 45px;
-    margin: 0;
-    padding: 0 15px;
-    background-color: #fff;
-  }
-
-  .el-breadcrumb__item:last-child .el-breadcrumb__inner {
-    font-size: 12px;
-    font-weight: 700;
-    color: #495060;
-  }
-
+</style>
+<style>
   /* form-item默认样式修改 */
-  .el-form-item {
+  /* .el-form-item {
     margin-bottom: 0 !important;
   }
 
@@ -227,5 +189,5 @@
 
   .el-table .cell {
     text-align: center !important;
-  }
+  } */
 </style>

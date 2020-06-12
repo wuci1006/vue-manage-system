@@ -34,7 +34,7 @@ const RouterConfig = {
     { path: '/login',name: 'login',component: Login },
     { path: '/main',name: 'main',component: Main,children:
       [
-        { path: '/home', name: 'home_index',component: Home },
+        { path: '/home', name: 'home_index',meta: {title: '首页'},component: Home },
         { path: '/chart/pie',name: 'chart_pie',meta: {title: '图形管理/饼图'},component: chart_pie },
         { path: '/chart/line',name: 'chart_line',meta: {title: '图形管理/折线图'},component: chart_line },
         { path: '/chart/bar',name: 'chart_bar',meta: {title: '图形管理/柱状图'},component: chart_bar },

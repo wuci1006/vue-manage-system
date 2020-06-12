@@ -1,7 +1,7 @@
 {
-    "name": "myproject",
+    "name": "manage",
     "version": "1.0.0",
-    "description": "my web",
+    "description": "vue-manage-system",
     "author": "wuci",
     "private": true,
     "scripts": {

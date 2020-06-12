@@ -1,5 +1,5 @@
 <template>
-    <div class="hello">
+    <div class="map">
         <h1>{{ msg }}</h1>
     </div>
 </template>
@@ -12,10 +12,10 @@
             }
         },
         created() {
-            
+
         },
         mounted() {
-            
+
         },
         methods: {
             //
@@ -24,5 +24,9 @@
 </script>
 
 <style scoped>
+  .map{
+    background: url('../../assets/images/map_bg.jpg') top left no-repeat;
+    width: 100%;
+  }
 
 </style>

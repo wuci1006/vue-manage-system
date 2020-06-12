@@ -80,8 +80,6 @@
         top:27%;
         left:36%;
         z-index:1;
-        text-align
     }
 }
-
 </style>

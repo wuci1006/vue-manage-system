@@ -1,8 +1,8 @@
  <template>
-	<div id="navbar">
+	<!-- <div id="navbar"> -->
         <el-menu :default-active="currentRoute" :default-openeds="opens" class="el-menu-vertical-demo"
             router @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-            
+
             <template v-for="(first,f_index) in navData">
 				<!-- 有子菜单 -->
                 <el-submenu :index="first.index" :key="`menu0_${f_index}`" v-if="first.second.length>0">
@@ -27,22 +27,22 @@
                         </el-submenu>
                     </div>
                 </el-submenu>
-				
+
                 <!-- 没有子菜单 -->
                 <el-menu-item :index="first.index" :key="`menu0_${f_index}`" v-if="first.second.length==0">
                     <i class="el-icon-menu"></i>
                     <span slot="title">{{first.title}}</span>
                 </el-menu-item>
-				
+
             </template>
         </el-menu>
-    </div>
+    <!-- </div> -->
 </template>
 <script>
 export default {
     data() {
         return {
-            isCollapse: false,
+            // isCollapse: false,
             currentRoute: "",
             opens: [],
             navData: [
@@ -92,7 +92,7 @@ export default {
                         }
                     ]
                 },
- 
+
                 // {
                 //     index: "3",
                 //     title: "医生问答",
@@ -192,6 +192,7 @@ export default {
             ]
         };
     },
+    props:['isCollapse'],
     created() {
         this.currentRoute = this.$route.path;
         this.opens = [];
@@ -212,14 +213,14 @@ export default {
     }
 };
 </script>
- 
+
 <style lang="scss" scoped>
 #navbar {
-    width: 200px;
-    .el-menu-vertical-demo:not(.el-menu--collapse) {
-        min-height: 100vh;
-        overflow-y: scroll;
-    }
-}
+    // width: 200px;
 
+}
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+        width: 200px;
+        min-height: 400px;
+    }
 </style>
