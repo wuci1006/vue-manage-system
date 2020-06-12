@@ -31,6 +31,17 @@
 					<PieChart8 ref='pie8' :pieData8="pieData8"></PieChart8>
 				</div>
 			</el-row>
+      <el-row class="clearfix" :style="{margin:'15px 0'}">
+      	<div :style="{width:'32%',float:'left',height:'390px',margin:'0 1%',background:'#ffffff'}">
+      		<PieChart9 ref='pie9' :pieData9="pieData9"></PieChart9>
+      	</div>
+      	<div :style="{width:'32%',float:'left',height:'390px',margin:'0 1% 0 0',background:'#ffffff'}">
+      		<PieChart10 ref='pie10' :pieData10="pieData10"></PieChart10>
+      	</div>
+      	<div :style="{width:'32%',float:'left',height:'390px',margin:'0 1% 0 0',background:'#ffffff'}">
+      		<!-- <PieChart8 ref='pie8' :pieData8="pieData8"></PieChart8> -->
+      	</div>
+      </el-row>
 		</div>
 	</div>
 </template>
@@ -44,17 +55,21 @@
 	import PieChart6 from '../../components/echarts/pie/pieChart6.vue';
 	import PieChart7 from '../../components/echarts/pie/pieChart7.vue';
 	import PieChart8 from '../../components/echarts/pie/pieChart8.vue';
+  import PieChart9 from '../../components/echarts/pie/pieChart9.vue';
+  import PieChart10 from '../../components/echarts/pie/pieChart10.vue';
 	export default {
 		components: {
-           PieChart1,
+       PieChart1,
 		   PieChart2,
 		   PieChart3,
 		   PieChart4,
 		   PieChart5,
 		   PieChart6,
 		   PieChart7,
-		   PieChart8
-        },
+		   PieChart8,
+       PieChart9,
+       PieChart10
+    },
 		data() {
 			return {
 				pieData1: {
@@ -156,6 +171,22 @@
 						['lemon', 55.2, 67.1, 69.2, 72.4]
 					]
 				},
+        pieData9: {
+          title:'累计用电',
+        	lone1:[
+        		{value:'102', name:'累计用电'}
+        	]
+        },
+        pieData10: {
+          title:'家电情况分析',
+        	lone1:[
+        		{value:'102', name:'空调'},
+            {value:'302', name:'冰箱'},
+            {value:'32', name:'洗衣机'},
+            {value:'92', name:'洗碗机'},
+            {value:'182', name:'面包机'},
+        	]
+        },
 			}
 		},
 		created() {
@@ -169,6 +200,8 @@
 			this.$refs.pie6.draweCharts();
 			this.$refs.pie7.draweCharts();
 			this.$refs.pie8.draweCharts();
+      this.$refs.pie9.draweCharts();
+      this.$refs.pie10.draweCharts();
 		},
 		methods: {
 		},

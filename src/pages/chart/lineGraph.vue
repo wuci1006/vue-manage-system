@@ -23,10 +23,18 @@
 					<LineChart6 ref='line6' :lineData6="lineData6"></LineChart6>
 				</div>
 			</el-row>
+      <el-row class="clearfix" :style="{margin:'15px 0'}">
+      	<div :style="{width:'65%',float:'left',height:'390px',margin:'0 1%',background:'#ffffff'}">
+      		<LineChart7 ref='line7' :lineData7="lineData7"></LineChart7>
+      	</div>
+      	<div :style="{width:'32%',float:'left',height:'390px',margin:'0 1% 0 0',background:'#ffffff'}">
+      		<!-- <LineChart6 ref='line6' :lineData6="lineData6"></LineChart6> -->
+      	</div>
+      </el-row>
 		</div>
 	</div>
 </template>
-    
+
 <script>
 	import LineChart1 from '../../components/echarts/line/lineChart1.vue';
 	import LineChart2 from '../../components/echarts/line/lineChart2.vue';
@@ -34,6 +42,7 @@
 	import LineChart4 from '../../components/echarts/line/lineChart4.vue';
 	import LineChart5 from '../../components/echarts/line/lineChart5.vue';
 	import LineChart6 from '../../components/echarts/line/lineChart6.vue';
+  import LineChart7 from '../../components/echarts/line/lineChart7.vue';
 	export default {
 		components: {
 		   LineChart1,
@@ -41,7 +50,8 @@
 		   LineChart3,
 		   LineChart4,
 		   LineChart5,
-		   LineChart6
+		   LineChart6,
+       LineChart7
 		},
 		data() {
 			return {
@@ -103,15 +113,15 @@
 					lone1:['00:00', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45'],
 					lone2:[300, 280, 250, 260, 270, 300, 550, 500, 400, 390, 380, 390, 400, 500, 600, 750, 800, 700, 600, 400],
 					lone3:[
-						{lte: 6,color: 'green'}, 
-						{gt: 6,lte: 8,color: 'red'}, 
-						{gt: 8,lte: 14,color: 'green'}, 
-						{gt: 14,lte: 17,color: 'red'}, 
+						{lte: 6,color: 'green'},
+						{gt: 6,lte: 8,color: 'red'},
+						{gt: 8,lte: 14,color: 'green'},
+						{gt: 14,lte: 17,color: 'red'},
 						{gt: 17,color: 'green'},
 					],
-					lone4:[ 
-						[{name: '早高峰',xAxis: '07:30'}, {xAxis: '10:00'}], 
-						[{name: '晚高峰',xAxis: '17:30'}, {xAxis: '21:15'}] 
+					lone4:[
+						[{name: '早高峰',xAxis: '07:30'}, {xAxis: '10:00'}],
+						[{name: '晚高峰',xAxis: '17:30'}, {xAxis: '21:15'}]
 					]
 				},
 				lineData6: {
@@ -124,7 +134,27 @@
 						['red', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
 					]
 				},
-				
+        lineData7: {
+        	title:'家用电器分析',
+          lone1:{
+            xData:['03:00','09:00','15:00','21:00'],
+            data:[
+              {name:'冰箱',type:'line',data:[100,120,280,130]},
+              {name:'空调',type:'line',data:[200,150,240,110]},
+              {name:'洗衣机',type:'line',data:[300,100,210,190]},
+            ]
+          },
+          lone2:{
+            xData:['3日','12日','20日','28日'],
+            data:[
+              {name:'冰箱',type:'line',data:[100,120,280,130]},
+              {name:'空调',type:'line',data:[200,150,240,110]},
+              {name:'洗衣机',type:'line',data:[300,100,210,190]},
+            ]
+          }
+
+        },
+
 			}
 		},
 		created() {
@@ -136,10 +166,9 @@
 			this.$refs.line4.draweCharts();
 			this.$refs.line5.draweCharts();
 			this.$refs.line6.draweCharts();
+      this.$refs.line7.draweCharts();
 		},
 		methods: {
 		},
 	}
 </script>
-
-

@@ -28,27 +28,27 @@
         data() {
             return {
                 loginForm: {
-                    username: '',
-                    password: '',
+                    username: 'user',
+                    password: '12345678',
                     remember:false,
                 },
                 rules: {
                     username: [
-                        { required: true, message: '请输入名称', trigger: 'blur' },
-                        { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+                    { required: true, message: '请输入名称', trigger: 'blur' },
+                    { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
                     ],
                     password: [
-                        { required: true, message: '请输入密码', trigger: 'blur' },
-                        { min: 6, max: 12, message: '长度在 6 到 12 个字符', trigger: 'blur' }
+                    { required: true, message: '请输入密码', trigger: 'blur' },
+                    { min: 6, max: 12, message: '长度在 6 到 12 个字符', trigger: 'blur' }
                     ],
                 }
             }
         },
         created() {
-            
+
         },
         mounted() {
-            
+
         },
         methods: {
             //提交
@@ -66,21 +66,22 @@
 </script>
 
 <style lang="scss" scoped>
-    .login{
-        width:100%;
-        height:100vh;
-        background: url('../assets/images/bg.jpg');
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        .cardBox{
-            width:360px;
-            height:380px;
-            position: absolute;
-            top:27%;
-            left:36%;
-            z-index:1;
-        }
+.login{
+    width:100%;
+    height:100vh;
+    background: url('../assets/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .cardBox{
+        width:360px;
+        height:380px;
+        position: absolute;
+        top:27%;
+        left:36%;
+        z-index:1;
+        text-align
     }
+}
 
 </style>
