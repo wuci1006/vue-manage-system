@@ -1,11 +1,6 @@
 <template>
     <div class="hello">
         <h1>{{ msg }}</h1>
-		<!-- <div>
-			<button></button>
-		</div> -->
-		
-		
     </div>
 </template>
 
@@ -13,17 +8,16 @@
     export default {
         data() {
             return {
-                msg: 'Welcome to Your Vue.js App'
+                msg: 'Hello World'
             }
         },
         created() {
-            
+
         },
         mounted() {
-            
+
         },
         methods: {
-            //
         },
     }
 </script>

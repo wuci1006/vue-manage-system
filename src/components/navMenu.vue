@@ -44,11 +44,32 @@ export default {
                 child: [{path: '/map/one',title: '地图1'},
                   {path: '/map/two',title: '地图2'},]
               },
+              {icon: 'el-icon-menu',path: '/photo',title: '图片管理',
+                child: [{path: '/photo/one',title: '点击放大1'},
+                  {path: '/photo/two',title: '点击放大2'},
+                  {path: '/banner/one',title: '横向轮播'},
+                  {path: '/banner/two',title: '竖向轮播'},
+                  {path: '/banner/swiper',title: 'swiper'},]
+              },
               {icon: 'el-icon-menu',path: '/editor',title: '编辑器',
                 child: [{path: '/editor/wang',title: 'wangEditor'},
                   {path: '/editor/quill', title: 'quillEditor'},
                   {path: '/editor/ck', title: 'ckEditor'},
                   {path: '/editor/mavon', title: 'mavonEditor'}]
+              },
+              {icon: 'el-icon-menu',path: '/define',title: '自定义',
+                child: [{path: '/define/ellipsis',title: '多行省略'},
+                {path: '/animation/particle',title: '粒子动画'},
+                ]
+              },
+              {icon: 'el-icon-menu',path: '/play',title: '播放器',
+                child: [{path: '/play/video',title: '视频播放器'},
+                {path: '/play/music',title: '音频播放器'},
+                ]
+              },
+              {icon: 'el-icon-menu',path: '/socket',title: '数据管理',
+                child: [{path: '/socket/websocket',title: 'websocket'},
+                ]
               },
               {icon: 'el-icon-setting',path: 'system',title: '系统管理',
                 child: [{ path: '/system/user',title: '用户列表'},
